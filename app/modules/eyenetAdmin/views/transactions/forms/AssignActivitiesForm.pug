@@ -1,0 +1,36 @@
+extends ../../../../../templates/eyenetAdmin 
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.massive.inverted.centered.green.label Assign Activities
+                form#val.ui.form.mleft.height5(method="POST" action=`/eyenetAdmin/assignActivities/new`)
+                    div.ui.three.fields
+                        div.ui.field
+                            label Select Schedule
+                            select#sel.search.selection.dropdown(name="schedule")
+                                each hill in hills
+                                    option(value=hill.intSchedID) #{hill.strSDesc}
+                        div.ui.field
+                            label.ui Select Activity
+                            select#sele.search.selection.dropdown(name="act")
+                                each pill in pills
+                                    option(value=pill.intActID) #{pill.strActDesc}
+                        div.ui.field
+                            label.ui Activity details
+                            input(type="text" name="details" placeholder="Date")
+                        
+                    button.green.ui.button.huge(type="submit") Submit
+                    script.
+                        $('#sel,#sele').dropdown();
+                        {
+                            var eo = document.getElementById("tran");
+                            var et = document.getElementById("assign");
+                            var ee = document.getElementById("con2");
+                            var ef = document.getElementById("trans");
+                            ee.classList.add("active")
+                            eo.classList.add("active");
+                            et.classList.add("active");
+                            ef.classList.add("active");
+                        }

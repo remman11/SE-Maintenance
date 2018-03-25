@@ -1,0 +1,168 @@
+html
+  head
+    title Contact Us
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.css')
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.css')
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css', integrity='sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm', crossorigin='anonymous')
+    link(rel='stylesheet', href='style.css')
+    script(defer='', src='https://use.fontawesome.com/releases/v5.0.6/js/all.js')
+    script(defer='', src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.js')
+    script(defer='', src='https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.3.0/semantic.min.js')
+    script(src='https://code.jquery.com/jquery-3.2.1.slim.min.js', integrity='sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN', crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js', integrity='sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q', crossorigin='anonymous')
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js', integrity='sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl', crossorigin='anonymous')
+    script(type='text/javascript').
+      $('#fooo')
+      .form({
+      inline: 'true',
+      fields:
+      {
+      username: {
+      identifier: 'username',
+      rules: [
+      {
+      type   : 'empty',
+      prompt : 'Please enter your Username'
+      },
+      ]
+      },
+      password: {
+      identifier: 'password',
+      rules: [
+      {
+      type   : 'empty',
+      prompt : 'Please enter your password'
+      }
+      ]
+      },
+      address: {
+      identifier: 'address',
+      rules: [
+      {
+      type   : 'empty',
+      prompt : 'Please enter your Address'
+      }
+      ]
+      },
+      birthday: {
+      identifier: 'birthday',
+      rules: [
+      {
+      type   : 'empty',
+      prompt : 'Please enter your Birthday'
+      }
+      ]
+      },
+      mobile: {
+      identifier: 'mobile',
+      rules: [
+      {
+      type   : 'empty',
+      prompt : 'Please enter your Mobile Number'
+      }
+      ]
+      },
+      emailadd: {
+      identifier: 'emailadd',
+      rules: [
+      {
+      type   : 'empty',
+      prompt : 'Please enter your Email Address'
+      }
+      ]
+      },
+      }
+      });
+  body
+    .jumbotron.text-center
+      .container
+        h2.display-4 CONTACT US
+        p.lead
+      br
+      br
+      .ui.three.column.grid.container.center.aligned
+        .column
+          h3.ui.icon.header
+            a.btn.btn-circle.btn-lg.bcollapse(type='button', data-toggle='collapse', data-target='#loc', aria-expanded='false', aria-controls='collapseExample')
+              span.fa-stack.fa-4x
+                i.fa.fa-circle.fa-stack-2x.icc
+                i.fa.fa-map-marker-alt.fa-stack-1x.ic
+            .inqtitle
+              | ADDRESS
+            br
+            #loc.collapse
+              .center.aligned.det
+                p.subt Main Office
+                p #92 3rd Floor AMO Bldg.
+                p New York Ave
+                p Brgy. E. Rodriguez Cubao
+                p Quezon City.
+        .column
+          h3.ui.icon.header
+            a.btn.btn-default.btn-circle.btn-lg.bcollapse(type='button', data-toggle='collapse', data-target='#phone', aria-expanded='false', aria-controls='collapseExample')
+              span.fa-stack.fa-4x
+                i.fa.fa-circle.fa-stack-2x.icc
+                i.fa.fa-phone.fa-stack-1x.ic
+            br
+            .inqtitle
+              | CONTACTS
+            br
+            #phone.collapse
+              .center.aligned
+                .center.aligned.det
+                  p.subt Main Office Contacts
+                  p Landline: 440-4089
+                  p Globe: 0995-988-28-94 
+                  p Globe: 0915-539-41-61
+                  p Smart: 0908-988-99-82
+        .column
+          h3.ui.icon.header
+            a.btn.btn-default.btn-circle.btn-lg.bcollapse(type='button', data-toggle='collapse', data-target='#email', aria-expanded='false', aria-controls='collapseExample')
+              span.fa-stack.fa-4x
+                i.fa.fa-circle.fa-stack-2x.icc
+                i.fa.fa-envelope.fa-stack-1x.ic
+            br
+            .inqtitle
+              | EMAIL
+            br
+            #email.collapse
+              .center.aligned
+                .center.aligned.det
+                  p.subt Main Office Email Address
+                  p eye.net_ittc@yahoo.com.ph
+    .ui.two.column.grid.container.centered
+      .column
+        h3.ui.icon.header
+          i.far.fa-question-circle
+          |                               MESSAGE US
+          br
+          br
+          .description.centered
+            img(src='eislogo.png')
+            |                                         Don't be shy. Email us any questions or call the numbers above. Any questions are entertained so don't hesitate to ask!
+      .column
+        form
+          .ui.two.column.grid.container
+            .column
+              .form-group
+                label(for='inqname') Full Name (optional)
+                input#inqname.form-control(type='text')
+            .column
+              .form-group
+                label(for='inqemail') Email Address*
+                input#inqemail.form-control(type='email')
+          .ui.two.column.grid.container
+            .column
+              .form-group
+                label(for='inqsubject') Subject
+                input#inqsubject.form-control(type='text')
+          .ui.one.column.grid.container
+            .column
+              .form-group
+                label(for='inqtextarea') Message*
+                textarea#inqtextarea.form-control(rows='5')
+                br
+                button.ui.animated.button(type='submit', tabindex='0')
+                  .visible.content Submit
+                  .hidden.content
+                    i.right.arrow.icon

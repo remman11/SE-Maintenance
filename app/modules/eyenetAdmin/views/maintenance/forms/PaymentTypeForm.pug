@@ -1,0 +1,52 @@
+extends ../../../../../templates/eyenetAdmin 
+    
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.ribbon.label.big.inverted.blue 
+                    p #{form ? 'Edit' : 'Add'} Payment Type
+                .ui.container.inverted.teal.height3
+                    form#form.ui.form.mleft(method="POST" action=`/eyenetAdmin/paymentType${form ? `/${form.intPayTypeID}?_method=PUT`: '/new'}`)
+                        div.ui.field
+                            label.ui.large.teal.tag  Type Name
+                            input(type="text" name="etypename" value=form ? form.strPayTypeName : '')
+                        if(!form)
+                            div.ui.field
+                                input(type="hidden" name="smid" value=ID)
+                        div#butt.warp2.height2
+                            button#add.ui.labeled.orange.icon.button.rightp(type="submit")
+                                i.add.icon
+                                p #{form ? 'Update' : 'Add'}
+                            a.button.ui.labeled.orange.icon.button.rightp(href="/eyenetAdmin/paymentType")
+                                i.add.icon
+                                p Back
+                                script.
+                                    {
+                                        var eo = document.getElementById("main");
+                                        var et = document.getElementById("payment");
+                                        var ee = document.getElementById("con1");
+                                        var ef = document.getElementById("maint");
+                                        ee.classList.add("active");
+                                        eo.classList.add("active");
+                                        et.classList.add("active");
+                                        ef.classList.add("active");
+                                    }
+                                
+                                    $('#form')
+                                    .form({
+                                        inline: 'true',
+                                        fields: {
+                                        csname: {
+                                            identifier: 'etypename',
+                                            rules: [
+                                            {
+                                                type   : 'empty',
+                                                prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                            }
+                                            ]
+                                            
+                                            }
+                                        }
+                                        });
+                           

@@ -1,0 +1,50 @@
+extends ./eyenetbase
+block body
+    div.ui.secondary.top.fixed.pointing.menu
+        div.right.menu
+            a.menu.item(href="/logout")     
+                i.circular.sign.out.icon 
+                p Log-out
+    div.ui.huge.left.fixed.inverted.vertical.menu 
+        img.ui.centered.small.image.active(src="/assets/Faculty/eyenetlogo.png")
+        img.ui.centered.small.image(src="/assets/Faculty/eyenettext.png")
+        div.ui.inverted.accordion
+            div#dash.item
+                a.title(href="/eyenetAdmin/dashboard") Dashboard
+            div#main.item
+                div.title#maint Maintenance
+                    i.dropdown.icon
+                div#con1.content
+                    div.vertical.menu
+                        a#activity.item(href="/eyenetAdmin/activities") Activities
+                        a#course.item(href="/eyenetAdmin/course") Course
+                        a#equip.item(href="/eyenetAdmin/equiptype") Equipment Types
+                        a#payment.item(href="/eyenetAdmin/paymentType") Payment Status
+                        a#proctor.item(href="/eyenetAdmin/proctors") Proctors / Professors
+                        a#sched.item(href="/eyenetAdmin/scheduleList") Schedule      
+                        a#status.item(href="/eyenetAdmin/statustype") Status Type
+                        a#user.item(href="/eyenetAdmin/usertype") User Type
+            div#trans.item
+                div.title#tran Transactions
+                    i.dropdown.icon
+                div#con2.content
+                    div.vertical.menu   
+                        //a#assign.item(href="/eyenetAdmin/assignActivities") Assign Activities
+                        a#enrollment.item(href="/eyenetAdmin/enrollment") Enrollment
+                        //a#document.item(href="/eyenetAdmin/documents") Document Requests
+                        a#inquiry.item(href="/eyenetAdmin/inquiries") Inquiries         
+                        //a#students.item(href="/eyenetAdmin/students") Students
+            div#reports.item
+                div.title#rep Reports
+                    i.dropdown.icon
+                div#con3.content
+                    div.vertical.menu 
+                        a#equipments.item(href="/eyenetAdmin/reports/equipments") Equipments
+                        a#students.item(href="/eyenetAdmin/reports/students") Students  
+                             
+    block content   
+    script.
+        $('.ui.accordion').accordion();
+        $('#butt').click
+            .sidebar('show')
+        ;

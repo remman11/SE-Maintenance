@@ -1,0 +1,202 @@
+extends ../../../templates/aboutbase
+block body
+
+ .fsize.ui.horizontal.divider
+      h2
+        i.fas.fa-info-circle
+        | About Us
+    h1.ui.center.aligned.header
+      i.fas.fa-building
+      .content
+        | Company Details
+    #container
+      br
+      h1.centered.bold ENROLL NOW and be one of our PASSER!
+      h3.centered
+        | We are Inviting you to train here with us, Eyenet Training Center.
+        | Our Promo till June 15, 2017 Only
+      #left
+        p3
+          i.fa.fa-map-marker-alt
+          | Location:
+        p5   #92 AMO Bldg. Newyork Ave. Corner Oxford Street,
+        br
+        p5.distance Brgy. E. Rodriguez 1109 Cubao, Quezon City, Philippines
+        br
+        p5.distance
+          a(href='https://wego.here.com/directions/mix//Eyenet-Training-Center,-Oxford,-E.-Rodriguez,-Quezon-City:e-eyJuYW1lIjoiRXllbmV0IFRyYWluaW5nIENlbnRlciIsImFkZHJlc3MiOiIjOTIgQU1PIEJsZGcuIE5ld3lvcmsgQXZlLiBDb3JuZXIgT3hmb3JkIFN0cmVldCwgQnJneS4gRS4gUm9kcmlndWV6LCBDdWJhbywgUXVlem9uIENpdHksIFBoaWxpcHBpbmVzIiwibGF0aXR1ZGUiOjE0LjYyNzU5MzI5OTY4MiwibG9uZ2l0dWRlIjoxMjEuMDUyOTUzMDA0ODQsInByb3ZpZGVyTmFtZSI6ImZhY2Vib29rIiwicHJvdmlkZXJJZCI6MTU2MDkyMzU2MDg4OTc4N30=?map=14.62759,121.05295,15,normal&fb_locale=en_GB', target='_blank')
+            | Get Direction
+        // end left
+      #right
+        p4
+          p3
+            i.fa.fa-phone.a
+            | Contact:
+          p5    (02) 440 4089
+          br
+          p5.distance  Globe: 0995-988-28-94
+          br
+          p5.distance  Globe: 0915-539-41-61
+          br
+          p5.distance  Smart: 0908-988-99-82 
+          br
+        p5(style='padding-left:140px;')
+          // end right
+      //
+        <div class="container">
+        <div class="lefty">
+        </div>
+        <div class="righty">
+        </div>
+        </div>
+      br
+      h1.ui.center.aligned.header
+        i.fa.fa-desktop.b
+        |                     Courses
+      .ui.horizontal.segments
+        .ui.segment
+          .ui.instant.move.reveal
+            .visible.content.course
+              img.ui.image(src='CCNA.png')
+            .hidden.content
+              center
+                .ui.animated.massive.button.ccna1(tabindex='0')
+                  .visible.content View Details
+                  .hidden.content
+                    i#myBtn.fa.fa-sticky-note.buttonss
+                br
+                br
+                .ui.animated.massive.button.ccna2(tabindex='1')
+                  .visible.content View Schedule
+                  .hidden.content
+                    i#myBtn2.fa.fa-calendar-alt.buttonss
+          p.pcourse Cisco Certified Network Associate
+        .ui.segment
+          .ui.instant.move.up.reveal
+            .visible.content.course
+              img.ui.image(src='CCNP.png')
+            .hidden.content
+              center
+                .ui.animated.massive.button.ccna1(tabindex='0')
+                  .visible.content View Details
+                  .hidden.content
+                    i#myBtn3.fa.fa-sticky-note.buttonss
+                br
+                br
+                .ui.animated.massive.button.ccna2(tabindex='1')
+                  .visible.content View Schedule
+                  .hidden.content
+                    i#myBtn4.fa.fa-calendar-alt.buttonss
+          p.pcourse Cisco Certified Network Professional
+        .ui.segment
+          .ui.instant.move.right.reveal
+            .visible.content.course
+              img.ui.image(src='cybersecurity.png')
+            .hidden.content
+              center
+                .ui.animated.massive.button.ccna1(tabindex='0')
+                  .visible.content View Details
+                  .hidden.content
+                    i#myBtn5.fa.fa-sticky-note.buttonss
+                br
+                br
+                .ui.animated.massive.button.ccna2(tabindex='1')
+                  .visible.content View Schedule
+                  .hidden.content
+                    i#myBtn6.fa.fa-calendar-alt.buttonss
+          p.pcourse Cyber Security
+    .ui.section.divider
+    // modal ccna
+    #myModal.modal
+      .modal-content
+        span.close ×
+        h1 CCNA
+        p Cisco Certified Network Associate
+        hr
+        p2 The Cisco Certified Network Associate (CCNA) certification is the 
+        p2 second level of Cisco's five-level career certification process. 
+        p2 A CCNA certification certifies a technician's ability to install,
+        p2 set up, configure, troubleshoot and operate a medium-sized routed 
+        p2 and switched computer network. This also includes implementing
+        p2 and verifying connections to a wide area network (WAN).
+    #myModal2.modal2
+      .modal-content2
+        span.close ×
+        p CCNA schedule
+    // modal ccnp
+    #myModal3.modal3
+      .modal-content3
+        span.close ×
+        h1 CCNP
+        p Cisco Certified Network Professional
+        hr
+        p2 A Cisco certified network professional (CCNP) is someone in the IT industry 
+        p2
+          | who has achieved a Cisco career certification, which is a type of IT professional
+        p2
+          | certification created by Cisco Systems to prove that a person is duly qualified and
+        p2 properly equipped to handle Cisco networking products and systems. 
+        br
+    #myModal4.modal4
+      .modal-content4
+        span.close ×
+        p CCNP schedule
+    // modal cybersecurity
+    #myModal5.modal5
+      .modal-content5
+        span.close ×
+        h1 Cyber Security
+        p Cyber Security
+        hr
+        p2 Cybersecurity, computer security or IT security is the protection of computer
+        p2 systems from the theft and damage to their hardware, software or information,
+        p2 as well as from disruption or misdirection of the services they provide.
+        br
+    #myModal6.modal6
+      .modal-content6
+        span.close ×
+        p Cyber Security schedule
+    h1.ui.center.aligned.header
+      i.fas.fa-users
+      .content
+        | Developers
+    .ui.four.column.grid
+      .column
+        .ui.card
+          .image
+            img(src='levi.jpg')
+          .content
+            a.center.aligned.header Levie Anne T. Mariñas
+            h5.center.aligned.header Project Manager
+      .column
+        .ui.card
+          .image
+            img(src='reign.jpg')
+          .content
+            a.center.aligned.header Reign Emmanuel O. Malto
+            h5.center.aligned.header Software Engineer
+      .column
+        .ui.card
+          .image
+            img(src='3.jpg')
+          .content
+            a.center.aligned.header John Carlos E. Pagaduan
+            h5.center.aligned.header Database Engineer
+      .column
+        .ui.card
+          .image
+            img(src='a.jpg')
+          .content
+            a.center.aligned.header Joshua J. Ganila
+            h5.center.aligned.header Technical Documenter
+    br
+    hr
+    footer.centered
+      div
+        a(href='https://www.facebook.com/eyenetrainingcenter/', target='_blank')
+          i.fab.fa-facebook-square.fa-4x
+        a.distance(href='https://www.facebook.com/messages/t/1560923560889787', target='_blank')
+          i.fab.fa-facebook-messenger.fa-4x
+      p
+        | site design © 2018 Eyenet Training Center;
+    script(src='modal.js')

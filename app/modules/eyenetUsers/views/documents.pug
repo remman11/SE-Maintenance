@@ -1,0 +1,79 @@
+extends ../../../templates/eyenetUsers
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.massive.inverted.centered.green.label Payment Voucher
+                
+                div.ui.center.aligned.container.padd
+                    canvas#myCanvas.can(width="900" height="910")
+                div.height3
+                    button#down.green.ui.animated.button.huge(type="button")
+                            div.visible.content Download
+                            div.hidden.content
+                                i.download.icon
+                    input#user(type="hidden" value=course)
+                    object(data='your_url_to_pdf', type='application/pdf')
+                        iframe(src='https://docs.google.com/viewer?url=your_url_to_pdf&embedded=true')
+    
+                    script.
+                        var canvas = document.getElementById("myCanvas");
+                        var x = document.getElementById("user").value;
+                        var object = JSON.parse(x);
+                        
+                        var context = canvas.getContext("2d");
+                        var context2 = canvas.getContext("2d");
+                        var context3 = canvas.getContext("2d");
+                        var context4 = canvas.getContext("2d");
+                        var context5 = canvas.getContext("2d");
+                        var context6 = canvas.getContext("2d");
+                        
+                        context.fillStyle = "White";
+                        context.fillRect(0,0,1100,1550);
+                        context.fillStyle = "Black";
+                        context.font = "bold 24px Arial";
+                        context.fillText("Eyenet Training Center",260,100);
+                        var context2 = canvas.getContext("2d");
+                        context2.font = "16px Arial";
+                        context2.fillText("#29 3rd Floor AMO Building, New York Ave. Corner Oxford Street",160,140);
+                        context2.fillText("Brgy. E. Rodriguez,Cubao Quezon City",255,170);
+                        
+                        context3.font = "bold 22px Arial";
+                        context3.fillText("Payment Voucher",300,220);
+
+                        context4.font = "bold 16px Arial";
+                        context4.fillText("Payment No.",60,300);
+                        context4.fillText(object.intUserID,180,300);
+                        context4.fillText("Bank: " ,60,350);
+                        context4.fillText("(BPI) Bank of the Philippine Islands ",180,350);
+                        context4.fillText("Account Name: ",60,400);
+                        context4.fillText(object.strULName + ", " + object.strUFName + " " + object.strUMName,200,400);
+                        context4.fillText("Account Number: 004020-0066-47",60,450);
+                        context4.fillText("Amount: 5000.00",60,500);
+                        
+                        context5.font = "bold 20px Arial";
+                        context5.fillText("Instructions:" ,60,570);
+
+                        context6.font = "16px Arial";
+                        context6.fillText("1.  Go to any Bank of the Philippine islands Branch (NOT BPI Family Savings)" ,65,600);
+                        context6.fillText("2.  Get a deposit slip from the dispenser located in the bank's lobby." ,65,630);
+                        context6.fillText("3.  Fill it up with the account name, account number and amount to be paid." ,65,660);
+                        context6.fillText("4.  After completing form, please proceed to the teller with deposit slip and cash payment." ,65,690);
+                        context6.fillText("5.  Upon completion of payment, please keep receipt and inform us of payment so we can" ,65,720);
+                        context6.fillText("     verify and process your enrollment." ,65,750);
+                        context6.fillText("6.  To inform us, you need to log-in to your account and go to the Messages, After that, attach" ,65,780);
+                        context6.fillText("     the picture or scanned copy of the receipt from the bank. You'll receive a message" ,65,810);
+                        context6.fillText("     from admin about it." ,65,840);
+
+                        $("#down").click(function(){
+                            var v = document.getElementById("user").value;
+                            var object = JSON.parse(v);
+                            var d = document.getElementById("myCanvas");
+                            var imgData = d.toDataURL("image/jpeg",1.0);
+                            var pdf = new jsPDF(`portrait`,`mm`,`letter`);
+                            pdf.addImage(imgData,'JPEG',0,0,250,250);
+                            pdf.save("EyenetTrainingCenter - "+object.intUserID+".pdf");
+                            
+                        });
+                        {
+                        }   

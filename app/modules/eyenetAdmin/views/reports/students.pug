@@ -1,0 +1,26 @@
+extends ../../../../templates/eyenetAdmin 
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Students 
+                    i.users.icon
+                table.ui.celled.padded.table
+                    thead
+                        tr.single.line.center.aligned 
+                            th.three.wide Name
+                            th.three.wide Course
+                        each kit in kits
+                            tr
+                                th.three.wide #{kit.strULName}, #{kit.strUFName} #{kit.strUMName}
+                                th #{kit.strSDesc} ( #{kit.strCDetails} ) 
+                                script.
+                                    {
+                                        var eo = document.getElementById("reports");
+                                        var et = document.getElementById("st");
+                                        var ee = document.getElementById("con3");
+                                        ee.classList.add("active")
+                                        eo.classList.add("active");
+                                        et.classList.add("active");
+                                    }

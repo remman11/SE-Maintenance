@@ -1,0 +1,32 @@
+extends ../../../../templates/eyenetUsers
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.ribbon.label.big.inverted.blue 
+                    p Messages
+                .ui.container.inverted.teal.height3
+                    div#chat
+                    form#form.ui.form.mleft
+                        div.ui.field
+                            label.ui.large.teal.tag  Recipient
+                            input(type="text" name="etypename" value=form ? form.strUserTypeName : '')
+                        div.ui.field
+                            label Enter Message
+                            textarea#messageForm(name="", cols="30", rows="10")
+                        div#butt.warp2.height2
+                            button#add.ui.labeled.orange.icon.button.rightp(type="submit")
+                                i.add.icon
+                                p Send
+                        script.
+                            $(function(){
+                                var socket = io.connect();
+                                var $messageForm = $('#form');
+                                var $message = $('#messageForm');
+                                var $chat =
+                                $form.submit(function(e){
+                                    e.prevent.default();
+                                    console.log('submitted');
+                                });
+                            });

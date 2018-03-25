@@ -1,0 +1,43 @@
+extends ../../../../../templates/eyenetAdmin
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Schedule List
+                div.omar
+                    a.button.green.right.floated.ui.basic.animated.button.huge(href="/eyenetAdmin/createSchedule")
+                        div.visible.content Add Schedule
+                        div.hidden.content
+                            i.calendar.plus.icon
+                div.maro
+                    div.ui.height3
+                        table.ui.celled.padded.table
+                            thead
+                                tr.single.line.center.aligned 
+                                    th.three.wide Info
+                                    th.three.wide Start 
+                                    th.three.wide End
+                                    th.two.wide Status
+                                    th.two.wide Actions
+                            each user in users
+                                tr
+                                    td=user.strSDesc
+                                    td=user.datStartDate
+                                    td=user.datEndDate
+                                    td
+                                        label.ui(class=user.strStatusColor)=user.strStatusDesc
+                                    td.center.aligned
+                                        a.item(href=`/eyenetAdmin/scheduleList/${user.intSchedID}/view` data-tooltip="View Schedule" data-position="bottom center"): i.brown.big.open.folder.outline.icon
+                                        a.item(href=`/eyenetAdmin/${user.intSchedID}/edit` data-tooltip="Edit" data-position="bottom center"): i.blue.big.edit.icon
+                                        a.item(href=`/eyenetAdmin/scheduleList/${user.intSchedID}/delete` data-tooltip="Delete" data-position="bottom center"): i.red.big.remove.icon
+                                    script.
+                                        {
+                                            var eo = document.getElementById("main");
+                                            var et = document.getElementById("sched");
+                                            var ee = document.getElementById("con1");
+                                            ee.classList.add("active")
+                                            eo.classList.add("active");
+                                            et.classList.add("active");
+                                        }
+                    

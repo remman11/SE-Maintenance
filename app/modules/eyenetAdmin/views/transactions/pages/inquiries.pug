@@ -1,0 +1,37 @@
+extends ../../../../../templates/eyenetAdmin
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Inquiries
+                    i.large.setting.icon
+                div.maro
+                    div.ui.height3
+                        table.ui.celled.padded.table
+                            thead
+                                tr.single.line.center.aligned 
+                                    th.three.wide Start 
+                                    th.four.wide Subject
+                                    th.three.wide Name
+                                    th.two.wide Actions
+                            each user in users
+                                tr
+                                    td=user.datIDate
+                                    td=user.strISubject
+                                    td=user.strGuestName
+                                    td.center.aligned
+                                        a.item(href=`/eyenetAdmin/inquiries/${user.intInquiryID}`): i.black.big.open.folder.icon
+                                        a.item(href=`/eyenetAdmin/inquiries/${user.intInquiryID}/delete`): i.red.big.remove.icon
+                                    script.
+                                        {
+                                            var eo = document.getElementById("trans");
+                                            var et = document.getElementById("inquiry");
+                                            var ee = document.getElementById("con2");
+                                            var ef = document.getElementById("tran");
+                                            ee.classList.add("active");
+                                            eo.classList.add("active");
+                                            et.classList.add("active");
+                                            ef.classList.add("active");
+                                        }
+                    

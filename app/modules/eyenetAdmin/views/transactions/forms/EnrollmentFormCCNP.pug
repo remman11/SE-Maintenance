@@ -1,0 +1,222 @@
+extends ../../../../../templates/eyenetAdmin 
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.massive.inverted.centered.green.label Enrollment Form
+                div.ui.top.attached.tabular.menu.height4
+                    a.item#first(class= (activeTab === 'info' ? 'active' : '') data-tab="first") Personal Information
+                div.ui.bottom.attached.tab.segment#ftab(data-tab='first')
+                    form#form.ui.form.mleft.height3(method="POST" action=`/eyenetAdmin/enrollment/ccnp`)
+                        div.ui.three.fields
+                            div.ui.field
+                                label.ui.large.teal.tag Last Name
+                                input(type="text" name="lname" placeholder="Last Name")
+                            div.ui.field
+                                label.ui.large.teal.tag First Name
+                                input(type="text" name="fname" placeholder="First Name")
+                            div.ui.field
+                                label.ui.large.teal.tag Middle Name
+                                input(type="text" name="mname" placeholder="Middle Name")
+                        div.ui.two.fields
+                            div.ui.field
+                                label.ui.large.teal.tag Birthday
+                                input(type="date" name="bday" placeholder="dd/mm/yyyy")
+                            div.ui.field
+                                label.ui Select Schedule
+                                select#sel.search.selection.dropdown(name="sched")
+                                    each hat in hats
+                                        option(value=`${hat.intSchedID}`) #{hat.strSDesc} (#{hat.datStartDate} - #{hat.datEndDate})                            
+                            input#tocan(type="hidden" value=hats)
+                        div.ui.three.fields
+                            div.ui.field
+                                label.ui.large.teal.tag Telephone Number
+                                input(type="number" name="telnum" placeholder="000-00-00")
+                            div.ui.field
+                                label.ui.large.teal.tag Mobile Number
+                                input(type="number" name="mobnum" placeholder="09XX-XXX-XXX")
+                            div.ui.field
+                                label.ui.large.teal.tag Email Address
+                                input(type="email" name="email" placeholder="john.doe@xyz.com")
+                        div.ui.three.fields
+                            div.ui.field
+                                label.ui.large.teal.tag Username 
+                                input(type="text" name="username" placeholder="Password")
+                            div.ui.field
+                                label.ui.large.teal.tag Password
+                                input(type="password" name="password" placeholder="Password")
+                            div.ui.field
+                                label.ui.large.teal.tag Confirm Password
+                                input(type="password" name="confirm" placeholder="Confirm Password")
+                            input(type="hidden" name="PID" value=ID)
+                        div.height3
+                            div.ui.two.fields
+                            a.green.ui.animated.button.huge(href="/eyenetAdmin/enrollment")
+                                div.visible.content Back
+                                div.hidden.content
+                                    i.backward.icon
+                            button.green.ui.animated.button.huge(type="submit")
+                                div.visible.content Submit
+                                div.hidden.content
+                                    i.forward.icon
+                    script.
+                        {
+                            var eo = document.getElementById("trans");
+                            var et = document.getElementById("enrollment");
+                            var ee = document.getElementById("tran");
+                            var ef = document.getElementById("con2");
+                            ee.classList.add("active");
+                            eo.classList.add("active");
+                            et.classList.add("active");
+                            ef.classList.add("active");
+                        }                
+                        $('#form')
+                            .form({
+                                inline: 'true',
+                                fields: {
+                                fname: {
+                                    identifier: 'fname',
+                                    rules: [
+                                    {
+                                        type   : 'fname',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    }
+                                    ]
+                                    },
+                                lname: {
+                                    identifier: 'lname',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    }
+                                    ]
+                                    },
+                                bday: {
+                                    identifier: 'bday',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    }
+                                    ]
+                                    },
+                                email: {
+                                    identifier: 'email',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    },
+                                    {
+                                        type   : 'email',
+                                        prompt : 'invalid email'
+                                    }
+                                    ]
+                                    },
+                                telnum: {
+                                    identifier: 'telnum',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    },
+                                    {
+                                        type   : 'minLength[7]',
+                                        prompt : 'must be 7 characters'
+                                    },
+                                    {
+                                        type   : 'maxLength[9]',
+                                        prompt : '9 is the maximum characters'
+                                    }
+                                    ]
+                                    },
+                                mobnum: {
+                                    identifier: 'mobnum',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    },
+                                    {
+                                        type   : 'minLength[11]',
+                                        prompt : 'must be 11 characters or More'
+                                    },
+                                    {
+                                        type   : 'maxLength[13]',
+                                        prompt : '13 is the maximum characters'
+                                    },
+                                    ]
+                                    },
+                                username: {
+                                    identifier: 'username',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    }
+                                    ]
+                                    },
+                                password: {
+                                    identifier: 'password',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    },
+                                    {
+                                        type   : 'minLength[8]',
+                                        prompt : 'Your Password must be atleast 8 characters or more'
+                                    }
+                                    ]
+                                    },
+                                confirm: {
+                                    identifier: 'confirm',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                    },
+                                    {
+                                        type   : 'match[password]',
+                                        prompt : `Passwords doesn't match`
+                                    }
+                                    
+                                    ]
+                                    },
+
+
+                                }
+                                });
+                        $('#sel,#sele').dropdown();
+                        {
+                            var a = document.getElementById("first");
+                            var b = document.getElementById("ftab");
+                            a.classList.add("active");
+                            b.classList.add("active");
+
+                        }
+                        $(`#click`).click(function(){
+                            $('#cybersec').submit();
+                        })
+                        $(`#butt`).click(function(){
+                            var a = document.getElementById("second");
+                            var b = document.getElementById("stab");
+                            var c = document.getElementById("first");
+                            var d = document.getElementById("ftab");
+                            a.classList.add("active");
+                            b.classList.add("active");
+                            c.classList.remove("active");
+                            d.classList.remove("active");
+                        })
+                        $('.tabular.menu .item').tab(); 
+                        $('#select,#selec,#sele').dropdown();
+                        {
+                            var d = document.getElementById("tocan").value;
+                            var f = JSON.parse(d);
+                            document.write(f[0].intSchedID);
+
+                            document.write(f[0].strSDesc);
+                        }
+                                        

@@ -1,0 +1,34 @@
+extends ../../../../../templates/eyenetAdmin 
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Proctors / Professors
+                a.button.green.right.floated.ui.basic.animated.button.huge(href="/eyenetAdmin/proctors/new")
+                    div.visible.content Add Proctor
+                    div.hidden.content
+                        i.add.icon
+                div.paddd
+                table.ui.padded.table
+                    thead
+                        tr.single.line
+                            th Name
+                            th.center.aligned.four.wide Actions
+                    each user in users
+                        tr
+                            td=user.strProctorName
+                            td.center.aligned
+                                a.item(href=`/eyenetAdmin/proctors/${user.intProctorID}` data-tooltip="Edit" data-position="bottom center"): i.blue.big.edit.icon
+                                a.item(href=`/eyenetAdmin/proctors/${user.intProctorID}/delete` data-tooltip="Delete" data-position="bottom center"): i.red.big.remove.icon
+                            script.
+                                {
+                                    var eo = document.getElementById("main");
+                                    var et = document.getElementById("proctor");
+                                    var ee = document.getElementById("con1");
+                                    var ef = document.getElementById("maint");
+                                    ee.classList.add("active");
+                                    eo.classList.add("active");
+                                    et.classList.add("active");
+                                    ef.classList.add("active");
+                                }

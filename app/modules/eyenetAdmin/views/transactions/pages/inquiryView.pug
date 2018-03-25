@@ -1,0 +1,55 @@
+extends ../../../../../templates/eyenetAdmin 
+    
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label
+                    i.large.setting.icon 
+                    p Message From : #{form.strGuestName}  
+                div.ui.container.inverted.teal.height3
+                    div.ui.container.height3
+                        table.ui.celled.padded.table
+                            tbody
+                                tr.single.line.center.aligned
+                                    td Subject
+                                    td=form.strISubject
+                                tr.three.wide.single.line.center.aligned
+                                    td Date
+                                    td=form.datIDate
+                                tr.three.wide.single.line.center.aligned
+                                    td Message
+                                    td=form.strIMessage        
+                        a.button.green.ui.basic.animated.button.huge(href="/eyenetAdmin/inquiries" tabindex="0")
+                            div.visible.content back
+                            div.hidden.content
+                                i.arrow.left.icon
+                            script.
+                                        {
+                                        var eo = document.getElementById("tran");
+                                        var et = document.getElementById("trans");
+                                        var ee = document.getElementById("con2");
+                                        var ef = document.getElementById("inquiry");
+                                        ee.classList.add("active");
+                                        eo.classList.add("active");
+                                        et.classList.add("active");
+                                        ef.classList.add("active");
+                                        }
+                                
+                                        $('#form')
+                                        .form({
+                                            inline: 'true',
+                                            fields: {
+                                            csname: {
+                                                identifier: 'etypename',
+                                                rules: [
+                                                {
+                                                    type   : 'empty',
+                                                    prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                                }
+                                                ]
+                                                
+                                                }
+                                            }
+                                            });
+                                

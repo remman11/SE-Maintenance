@@ -1,0 +1,48 @@
+extends ../../../templates/eyenetUsers
+block content
+    
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.massive.inverted.centered.green.label Dashboard
+                div
+                div.height4
+                    each cat in cats
+                        label.ui.black.large.label Welcome, To The Eyenet Training Center #{cat.strUFName} #{cat.strUMName} #{cat.strULName}
+            div.ui.center.aligned.container.padd.Height2   
+            div.ui.segment.eheight
+                div.ui.three.stackable.cards
+                    
+                    div.class.ui.card
+                        div.content
+                            label.top.attached.left.aligned.ui.large.green.label Signups Statistics  
+                        div.ui.content
+                            div.ui.inverted.segment
+                                div.content
+                                    i.center.aligned.huge.circular.users.icon
+                                div.extra.content
+                                    div.ui.inverted.fluid.segment
+                                        div.ui.inverted.statistic
+                                            div.value 2,220
+                                            div.label CCNA Students
+                    div.ui.inverted.black.card
+                        label.ui.massive.fluid.green.label Signups Statistics  
+                        div.ui.inverted.segment
+                            i.center.aligned.huge.inverted.circular.white.users.icon
+                        div.ui.inverted.segment
+                            div.ui.inverted.green.statistic
+                                div.value 2,220
+                                div.label CCNP Students
+                    div.class.ui.card
+                        div.content
+                            label.top.attached.ui.large.green.label Signups Statistics  
+                        div.content
+                            i.center.aligned.huge.circular.users.icon
+                        div.extra.content
+                            div.ui.statistic
+                                div.value 2,220
+                                div.label CyberSec Students
+                
+                        
+            script.
+                

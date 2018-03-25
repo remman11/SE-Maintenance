@@ -1,0 +1,92 @@
+extends ../../../templates/eyenetbase
+
+block body
+    div.cover
+        div.ui.centerer
+            div.ui.container.sHeight1p1
+                div.ui.top.attached.label.inverted.huge.teal.adjustleft
+                    label.ui Inquire
+                div.ui.container.inverted.teal
+                    form#val.ui.form.mleft(method="POST" action=`/inquire`)                    
+                        div.ui.field
+                            label.ui.black.label Guest Name
+                            input(type="text" name="gname" placeholder="Guest Name")
+                        div.ui.field
+                            label.ui.black.label Subject of Inquiry
+                            input(type="text" name="subject" placeholder="Type Subject Here")
+                        div.ui.field
+                            label.ui.black.label Email
+                            input(type="text" name="email" placeholder="johndoe.xyz.com")
+                            input(type="hidden" name="FID" value= ID)
+                        div.ui.field
+                                label.ui.black.label Message
+                                textarea(name="message", cols="30", rows="10")
+                        div.warz.height
+                            button.ui.labeled.green.icon.button.up.field(type="submit" value="submit")
+                                i.arrow.right.icon
+                                p Submit      
+                        script.
+                            $('#ge,#de,#cs,#ci,#em').dropdown();
+                            $('#val')
+                            .form({
+                                inline: 'true',
+                                
+                                fields: 
+                                {
+                                lastname: {
+                                    identifier: 'gname',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Name'
+                                    },
+                                    ]
+                                    
+                                },
+                                firstname: {
+                                    identifier: 'firstname',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your First Name'
+                                    }
+                                    ]
+                                },
+                                address: {
+                                    identifier: 'address',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Address'
+                                    }
+                                    ]
+                                },
+                                birthday: {
+                                    identifier: 'birthday',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Birthday'
+                                    }
+                                    ]
+                                },
+                                mobile: {
+                                    identifier: 'mobile',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Mobile Number'
+                                    }
+                                    ]
+                                },
+                                emailadd: {
+                                    identifier: 'emailadd',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Email Address'
+                                    }
+                                    ]
+                                },
+                                }
+                            });

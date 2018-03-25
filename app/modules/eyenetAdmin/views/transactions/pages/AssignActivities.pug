@@ -1,0 +1,39 @@
+extends ../../../../../templates/eyenetAdmin
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Add Activities
+                    i.large.setting.icon
+                div.maro
+                    div.ui.height3
+                        table.ui.celled.padded.table
+                            thead
+                                tr.single.line.center.aligned 
+                                    th.three.wide Remarks
+                                    th.two.wide Actions
+                            each user in users
+                                tr  
+                                    td=user.strSRemarks
+                                    td.center.aligned
+                                        a.item(href=`/eyenetAdmin/assignActivities/${user.intSchedID}/view`): i.black.big.open.folder.outline.icon
+                                        a.item(href=`/eyenetAdmin/assignActivities/${user.intSchedID}`): i.black.big.edit.icon
+                                        a.item(href=`/eyenetAdmin/assignActivities/${user.intSchedID}/delete`): i.black.big.remove.icon
+                                    script.
+                                        {   
+                                            db.query(`select * from tblschedact`,(err,results,field)=>{
+                                                console.log(results);
+                                            });
+                                            var eo = document.getElementById("trans");
+                                            var et = document.getElementById("assign");
+                                            var ee = document.getElementById("con2");
+                                            ee.classList.add("active")
+                                            eo.classList.add("active");
+                                            et.classList.add("active");
+                                            var Susers = {};
+                                            Susers = !{users};
+
+                                            console.log(Susers[0].strSRemarks);
+                                        }
+                    

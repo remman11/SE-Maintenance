@@ -1,0 +1,145 @@
+extends ../../../templates/eyenetbase
+
+block body
+    div.cover
+        div.ui.centerer
+            div.ui.center.aligned.container.sHeight5
+                div.ui.top.attached.label.inverted.huge.teal.adjustleft
+                    label.ui Student Signup
+                div.ui.container.inverted.teal
+                    form#val.ui.form.mleft(method="POST" action=`/signup`)
+                        div.ui.four.fields
+                            div.ui.field
+                                label.ui.black.label Username
+                                input(type="text" name="username" placeholder="Last Name" value=faculty ? faculty.strFacultySurname : '')
+                            div.ui.field
+                                label.ui.black.label Password
+                                input(type="password" name="password" placeholder="First Name" value=faculty ? faculty.strFacultyFirstname : '')
+                            div.ui.field
+                                label.ui.black.label Confirm Password
+                                input(type="text" name="confirmpassword" placeholder="Middle Name" value=faculty ? faculty.strFacultyMiddlename : '')
+                            input(type="hidden" name="FID" value= ID)
+                        div.ui.three.fields
+                            div.ui.field
+                                label.ui.black.label Lastname
+                                input(type="text" name="lastname" placeholder="Last Name" value=faculty ? faculty.strFacultySurname : '')
+                            div.ui.field
+                                label.ui.black.label Firstname
+                                input(type="text" name="firstname" placeholder="First Name" value=faculty ? faculty.strFacultyFirstname : '')
+                            div.ui.field
+                                label.ui.black.label Middlename
+                                input(type="text" name="middlename" placeholder="Middle Name" value=faculty ? faculty.strFacultyMiddlename : '')
+                            input(type="hidden" name="FID" value= ID)
+                        div.field
+                            div.ui.field    
+                                label.ui.black.label Address
+                                input(type="text" name="address" placeholder="Address" value=faculty ? faculty.strFacultyAddress : '')
+                        div.ui.three.fields
+                            div.ui.field
+                                label.ui.black.label Birthday
+                                input(type="date" name="birthday" placeholder="mm/dd/yy" value=faculty ? faculty.datFacultyBday : '')
+                            div.ui.field
+                                label.ui.black.label Gender
+                                select#ge.ui.selection.search.dropdown(name="gender") 
+                                    option(value=Male) Male
+                                    option(value=Female) Female
+                            div.ui.field
+                                label.ui.black.label Mobile
+                                input(type="text" name="mobile" placeholder="+63")
+                        div.ui.three.fields
+                            div.ui.field
+                                label.ui.black.label Email Address
+                                input(type="text" name="emailadd" placeholder="google@example.com" value=faculty ? faculty.strFacultyEmail : '')
+                            div.ui.field
+                                label.ui.black.label Select Course
+                                select#ge.ui.selection.search.dropdown(name="gender") 
+                                    option(value=Male) CCNA
+                                    option(value=Female) CCNP
+                                    option(value=Female) Cyber Security
+                            div.ui.field
+                                label.ui.black.label Amount (Balance)
+                                input(type="text" name="amount" placeholder="₱20000.00")
+                        div.ui.three.fields
+                            div.ui.field
+                                label.ui.black.label Payment Method
+                                select#ge.ui.selection.search.dropdown(name="gender") 
+                                    option(value=Male) Partial (Half)
+                                    option(value=Female) Full Payment
+                            div.ui.field
+                                label.ui.black.label Select Schedule
+                                select#ge.ui.selection.search.dropdown(name="gender") 
+                                    option(value=Male) CCNA Sched 1
+                                    option(value=Female) CCNA Sched 2
+                                    option(value=Female) Cyber Sched 3
+                            div.ui.field
+                                label.ui.black.label Amount to be Paid
+                                input.disabled.input(type="text" name="amount" placeholder="₱00.00")
+                        div.warz.height
+                            button.ui.labeled.green.icon.button.up.field(type="submit" value="submit")
+                                i.arrow.right.icon
+                                p Submit      
+                        script.
+                            $('#ge,#de,#cs,#ci,#em').dropdown();
+                            $('#val')
+                            .form({
+                                inline: 'true',
+                                
+                                fields: 
+                                {
+                                lastname: {
+                                    identifier: 'lastname',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter a Last Name'
+                                    },
+                                    ]
+                                    
+                                },
+                                firstname: {
+                                    identifier: 'firstname',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your First Name'
+                                    }
+                                    ]
+                                },
+                                address: {
+                                    identifier: 'address',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Address'
+                                    }
+                                    ]
+                                },
+                                birthday: {
+                                    identifier: 'birthday',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Birthday'
+                                    }
+                                    ]
+                                },
+                                mobile: {
+                                    identifier: 'mobile',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Mobile Number'
+                                    }
+                                    ]
+                                },
+                                emailadd: {
+                                    identifier: 'emailadd',
+                                    rules: [
+                                    {
+                                        type   : 'empty',
+                                        prompt : 'Please enter your Email Address'
+                                    }
+                                    ]
+                                },
+                                }
+                            });

@@ -1,0 +1,50 @@
+extends ../../../../../templates/eyenetAdmin 
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.massive.inverted.centered.green.label Create Schedule
+                form#val.ui.form.mleft.height5(method="POST" action=`/eyenetAdmin/createSchedule`)
+                    div.ui.three.fields
+                        div.ui.field
+                            label.ui Select Course
+                            select#select.search.selection.dropdown(name="scourse")
+                                each lip in lips
+                                    option(value=lip.intCID) #{lip.strCName}
+                        div.ui.field
+                            label.ui.large.teal.tag Select Start Date
+                            input(type="date" name="dstart" placeholder="Date")
+                        div.ui.field
+                            label.ui.large.teal.tag Select End Date
+                            input(type="date" name="dend" placeholder="Date")
+                    div.ui.two.fields
+                        div.ui.field
+                            label.ui.large.teal.tag Schedule Name
+                            input(type="text" name="schedname" placeholder="Short Description" value=form.strSRemarks)
+                        div.ui.field
+                            label.ui.large.teal.tag Remarks
+                            input(type="text" name="rem" placeholder="Short Description")
+                        input(type="hidden" name="SID" value=ID)
+                    div.ui.two.fields
+                        div.ui.field
+                            label.ui Proctor / Professor
+                            select#selec.search.selection.dropdown(name="procs")
+                                each tip in tips
+                                    option(value=tip.intProctorID) #{tip.strProctorName}
+                        div.ui.field
+                            label.ui Status
+                            select#sele.search.selection.dropdown(name="stats")
+                                each dip in dips
+                                    option(value=dip.intStatusID) #{dip.strStatusDesc}
+                    button.green.ui.button.huge(type="submit") Submit
+                    script.
+                        $('#select,#selec,#sele').dropdown();
+                        {
+                            var eo = document.getElementById("main");
+                            var et = document.getElementById("sched");
+                            var ee = document.getElementById("con1");
+                            ee.classList.add("active")
+                            eo.classList.add("active");
+                            et.classList.add("active");
+                        }

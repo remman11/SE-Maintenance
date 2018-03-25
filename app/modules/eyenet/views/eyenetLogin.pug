@@ -1,0 +1,137 @@
+extends ../../../templates/eyenetbase
+
+block body 
+    div.cover   
+        div.ar
+            div.ui.center.aligned.container.sHeight2
+                b.center.aligned.fontLato.wTcolor.size.wShadow.height Eyenet Information System
+                h1.center.aligned.fontLato.wTcolor.wShadow.height3 Your Gateway To the Cyberworld
+            div.ui.center.aligned.container.height12
+                button#mod.button.ui.green.massive.button.mg(type="button") Login
+                a.button.ui.green.massive.button.mg(href="/signup") Signup
+                a.button.ui.green.massive.button.mg(href="/inquire") Inquire
+            div.ui.mini.modal.lheight
+                i#close.circular.inverted.red.close.icon
+                div.ui.segment.green.mbnone
+                    img.ui.centered.small.image(src="/assets/Faculty/eyenettext.png")
+                    div.ui.container.you.tw 
+                        div.center.aligned.paddingzxc
+                            i.circular.huge.users.icon
+                    form#fooo.ui.fluid.form.indent.mbnone(method="POST" action="/login")
+                        div.field.pd
+                            label.large.white Username
+                            input(type="text" name="username" placeholder="Username")
+                        div.field
+                            label.ui.teal Password
+                        div.field
+                            input(type="password" name="password")
+                    div.ui.tw.pdnim
+                        button#click.ui.blue.button.fluid.field(type="button" value="Login")
+                            i.sign.in.icon 
+                            p Login
+            script.
+                $(`#click`).click(function(){
+                    $('#fooo').submit();
+                })
+                $('.ui.modal')
+                    .modal('attach events','#mod','show')
+                    .modal('attach events','#close','hide')
+                ;              
+                var url = getUrlParam('e')
+                console.log(url);
+                if(url===`1`)
+                {
+                    swal({
+                        type: 'error',
+                        text: 'incorrect username or password.'
+                    })
+                }
+                var url = getUrlParam('success')
+                console.log(url);
+                if(url===`inq`)
+                {
+                    swal({
+                        type: 'success',
+                        text: 'Your inquiry have been submitted!'
+                    })
+                }
+                var url = getUrlParam('success')
+                console.log(url);
+                if(url===`1`)
+                {
+                    swal({
+                        type: 'success',
+                        text: 'Please Login to Download your Payment Voucher.'
+                    })
+                }
+                
+                function getUrlParam(name){
+                    var results = new RegExp(`[\\?&]`+ name + `=([^&#]*)`).exec(window.location.href);
+                    return (results && results[1]) || undefined;
+                }
+                $('#fooo')
+                        .form({
+                            inline: 'true',
+                            
+                            fields: 
+                            {
+                            username: {
+                                identifier: 'username',
+                                rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your Username'
+                                },
+                                ]
+                                
+                            },
+                            password: {
+                                identifier: 'password',
+                                rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your password'
+                                }
+                                ]
+                            },
+                            address: {
+                                identifier: 'address',
+                                rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your Address'
+                                }
+                                ]
+                            },
+                            birthday: {
+                                identifier: 'birthday',
+                                rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your Birthday'
+                                }
+                                ]
+                            },
+                            mobile: {
+                                identifier: 'mobile',
+                                rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your Mobile Number'
+                                }
+                                ]
+                            },
+                            emailadd: {
+                                identifier: 'emailadd',
+                                rules: [
+                                {
+                                    type   : 'empty',
+                                    prompt : 'Please enter your Email Address'
+                                }
+                                ]
+                            },
+                            }
+                        });
+                
+
+                                       

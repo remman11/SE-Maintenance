@@ -1,0 +1,35 @@
+extends ../../../../../templates/eyenetAdmin 
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Activities
+                a.button.green.right.floated.ui.basic.animated.button.huge(href="/eyenetAdmin/activities/new" tabindex="0")
+                    div.visible.content Add Activities
+                    div.hidden.content
+                        i.add.icon
+                    
+                div.paddd
+                table.ui.padded.table
+                    thead
+                        tr.single.line.center.aligned  
+                            th Name
+                            th.four.wide Actions
+                    each user in users
+                        tr.center.aligned
+                            td=user.strActDesc
+                            td.center.aligned
+                                a.item(href=`/eyenetAdmin/activities/${user.intActID}` data-tooltip="Edit" data-position="bottom center"): i.blue.big.edit.icon
+                                a.item(href=`/eyenetAdmin/activities/${user.intActID}/delete` data-tooltip="Delete" data-position="bottom center"): i.red.big.remove.icon
+                            script.
+                                {
+                                    var eo = document.getElementById("main");
+                                    var et = document.getElementById("activity");
+                                    var ee = document.getElementById("con1");
+                                    var ef = document.getElementById("maint");
+                                    ee.classList.add("active");
+                                    eo.classList.add("active");
+                                    et.classList.add("active");
+                                    ef.classList.add("active");
+                                }

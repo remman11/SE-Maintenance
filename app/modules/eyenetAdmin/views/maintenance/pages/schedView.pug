@@ -1,0 +1,45 @@
+extends ../../../../../templates/eyenetAdmin
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Schedule Information
+                    i.large.setting.icon
+                div.maro
+                    div.ui.height3
+                        div.ui.container.height
+                            table.ui.padded.black.table
+                                tbody
+                                        tr
+                                            td.three.wide Course Name
+                                            td #{form.strCName} &nbsp; (#{form.strCDetails})
+                                        tr 
+                                            td Start Date
+                                            td=form.datStartDate
+                                        tr 
+                                            td End Date
+                                            td=form.datEndDate
+                                        tr
+                                            td Remarks
+                                            td=form.strSRemarks
+                                        tr
+                                            td Proctor Name
+                                            td=form.strProctorName
+                                        tr 
+                                            td Status
+                                            td=form.strStatusDesc
+                            a.button.green.ui.basic.animated.button.huge(href="/eyenetAdmin/scheduleList" tabindex="0")
+                                div.visible.content back
+                                div.hidden.content
+                                    i.arrow.left.icon
+                                            script.
+                                                {
+                                                    var eo = document.getElementById("main");
+                                                    var et = document.getElementById("sched");
+                                                    var ee = document.getElementById("con1");
+                                                    ee.classList.add("active")
+                                                    eo.classList.add("active");
+                                                    et.classList.add("active");
+                                                }
+                            

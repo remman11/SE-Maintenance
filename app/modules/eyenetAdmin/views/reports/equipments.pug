@@ -1,0 +1,28 @@
+extends ../../../../templates/eyenetAdmin 
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Equipments 
+                    i.users.icon
+                table.ui.celled.padded.table
+                    thead
+                        tr.single.line.center.aligned 
+                            th Name 
+                            th State
+                            th Pieces
+                        each sit in sits
+                            tr
+                                td #{sit.strETName} #{sit.strEDesc} 
+                                td #{sit.strEState}
+                                td #{sit.intEPieces}
+                                script.
+                                    {
+                                        var eo = document.getElementById("reports");
+                                        var et = document.getElementById("st");
+                                        var ee = document.getElementById("con3");
+                                        ee.classList.add("active")
+                                        eo.classList.add("active");
+                                        et.classList.add("active");
+                                    }

@@ -1,0 +1,32 @@
+extends ../../../../templates/eyenetUsers
+
+block content
+    block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.large.inverted.green.label Messages&nbsp;
+                    i.mail.icon
+                table.ui.celled.padded.table
+                    thead
+                        tr.single.line.center.aligned 
+                    
+                            th.four.wide Name
+                            th.three.wide Email
+                            th.one.wide Contact
+                            th.three.wide Description
+                            th.two.wide Actions
+                    each message in messages
+                        tr
+                            th=message.strMessagesSenderName
+                            th=message.strMessagesEmail
+                            th=message.strMessagesContact
+                            th=message.strMessagesName
+                            th.center.aligned
+                                a.item(href=`/eyenet/messages/${message.intEquipTypeID}`): i.black.big.open.envelope.outline.icon
+                                a.item(href=""): i.black.big.remove.icon
+                            script.
+                                {
+                                    var eo = document.getElementById("mess");
+                                    eo.classList.add("active");
+                                }

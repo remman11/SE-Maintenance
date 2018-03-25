@@ -1,0 +1,75 @@
+extends ../../../../../templates/eyenetAdmin 
+    
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.ribbon.label.big.inverted.blue 
+                    p #{form ? 'Edit' : 'Add'} Course
+                .ui.container.inverted.teal.height3
+                    form#form.ui.form.mleft(method="POST" action=`/eyenetAdmin/course${form ? `/${form.intCID}?_method=PUT`: '/new'}`)
+                        div.ui.field
+                            label.ui.large.teal.tag  Course Name
+                            input(type="text" name="etypename" value=form ? form.strCName : '')
+                        div.ui.field
+                            label.ui.large.teal.tag  Course Description
+                            input(type="text" name="desc" value=form ? form.strCDetails : '')
+                        div.ui.field
+                            label.ui.large.teal.tag  Course Fee
+                            input(type="number" name="cfee" value=form ? form.fltCFee : '')
+                        if(!form)
+                            div.ui.field
+                                input(type="hidden" name="smid" value=ID)
+                        div#butt.warp2.height2
+                            button#add.ui.labeled.orange.icon.button.rightp(type="submit")
+                                i.add.icon
+                                p #{form ? 'Update' : 'Add'}
+                            a.button.ui.labeled.orange.icon.button.rightp(href="/eyenetAdmin/course")
+                                i.add.icon
+                                p Back
+                                script.
+                                    {
+                                        var eo = document.getElementById("main");
+                                        var et = document.getElementById("course");
+                                        var ee = document.getElementById("con1");
+                                        var ef = document.getElementById("maint");
+                                        ee.classList.add("active");
+                                        eo.classList.add("active");
+                                        et.classList.add("active");
+                                        ef.classList.add("active");
+                                    }
+                                
+                                    $('#form')
+                                    .form({
+                                        inline: 'true',
+                                        fields: {
+                                        csname: {
+                                            identifier: 'etypename',
+                                            rules: [
+                                            {
+                                                type   : 'empty',
+                                                prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                            }
+                                            ]
+                                            },
+                                        desc: {
+                                            identifier: 'desc',
+                                            rules: [
+                                            {
+                                                type   : 'empty',
+                                                prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                            }
+                                            ]
+                                            },
+                                        cfee: {
+                                            identifier: 'cfee',
+                                            rules: [
+                                            {
+                                                type   : 'empty',
+                                                prompt : 'Please enter a Value, Field is Required and Cannot be blank'
+                                            }
+                                            ]
+                                            },
+                                        }
+                                        });
+                           

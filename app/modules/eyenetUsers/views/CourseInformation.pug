@@ -1,0 +1,30 @@
+extends ../../../templates/eyenetUsers
+
+block content
+    div.ui.container
+        div.padl.padd.padb
+            div.ui.segment.eheight
+                div.ui.top.attached.massive.inverted.centered.green.label Course Information    
+                div.height3
+                    table.ui.celled.padded.table
+                        thead
+                            tr.single.line.center.aligned 
+                                th.four.wide #{form.strCName} #{form.strCDetails}
+                    table.ui.celled.padded.table
+                        thead
+                            tr.single.line.center.aligned 
+                                th.four.wide #{form.strCName} #{form.strSDesc}
+                    table.ui.celled.padded.table
+                        thead
+                            tr.single.line.center.aligned 
+                                th.four.wide Start
+                                th.four.wide End
+                                th.three.wide Proctor / Professor
+                            tr
+                                td=form.datStartDate
+                                td=form.datEndDate
+                                td=form.strProctorName
+                    div.ui.segment
+                        label.ui.huge.ribbon.green.label Description
+                        h4.height2.left.aligned Candidates can prepare for this exam by taking the Interconnecting Cisco Networking Devices: Accelerated (CCNAX) v3.0 course.</br> </br>This exam tests a candidate's knowledge and skills required to install, operate, and troubleshoot a small to medium size enterprise branch network.
+                    
